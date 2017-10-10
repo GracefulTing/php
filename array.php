@@ -13,7 +13,7 @@
 	// echo $people[3];     //报错  数组越界
 
 	$ids = [23,45,27];
-	echo $ids[2]."<br>";
+	echo $ids[2]."<br>";      //27
 
 	$cars = ["Honda","Toyota","BYD"];
 	$cars[3] = "BWM";
@@ -45,11 +45,12 @@
 
 	print_r($ids);
 	//Array ( [22] => Henry [25] => Emily [35] => Bucky )
-
+	echo '<br>';
+	
 	# 观察
 	$cars[] = "Bence";
 	print_r($cars);
-	//Array ( [22] => Henry [25] => Emily [35] => Bucky ) Array ( [0] => Honda [1] => Toyota [2] => BYD [3] => BWM [4] => Bence ) 
+	// Array ( [0] => Honda [1] => Toyota [2] => BYD [3] => BWM [4] => Bence ) 
 
 	echo '<br>';
 
