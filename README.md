@@ -1,5 +1,3 @@
-# php课程代码
+# lesson-12  GET/POST/REQUEST
 
-### 在master主线中,不会有任何的内容.
-
-### 每个知识点会以分支的形式进行上传.
+### 主要讲解 $_GET/$_POST/$_REQUEST/查询url地址后面的参数
