@@ -1,4 +1,4 @@
-# lesson-11 客户端&服务端配置信息
+# lesson-11 $_SERVER[]:客户端&服务端配置信息
 
 	/*
 		SERVER_NAME => 主机名
