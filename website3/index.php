@@ -82,7 +82,7 @@
 			</div>
 			<div class="form-group">
 				<label>邮箱</label>
-				<input type="text" name="email" class="form-control" value="<?php echo isset($_POST['name'])? $email:'' ?>">
+				<input type="text" name="email" class="form-control" value="<?php echo isset($_POST['email'])? $email:'' ?>">
 			</div>
 			<div class="form-group">
 				<label>信息</label>
