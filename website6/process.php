@@ -14,11 +14,15 @@
 
 	# 1.链接数据库
 	$conn = mysqli_connect("localhost","root","","ajaxtest");
-	mysqli_query($conn,"set names 'utf8'"); 
+	# 设置字符集
+	mysqli_query($conn,"set names 'utf8'");
+	//mysqli_set_charset($conn,"utf8"); 
 
 	if(isset($_POST['name'])){
 		$name = $_POST['name'];
+		# 准备sql语句
 		$query = "INSERT INTO users(name) VALUES('$name')";
+		# 发送sql语句到服务器
 		$result = mysqli_query($conn,$query);
 		if($result){
 			echo '数据插入成功!';
