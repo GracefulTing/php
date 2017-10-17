@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ajax 4 - 请求PHP接口</title>
+</head>
+<body>
+	<button id="btn">获取数据</button>
+	<br>
+	<div id="process"></div>
+	<br>
+	<h1>GET FORM</h1>
+	<form action="process.php" method="GET">
+		<input type="text" name="name">
+		<input type="submit" value="submit">
+	</form>
+	<br>
+	<h1>AJAX GET FORM</h1>
+	<form action="process.php" method="GET" id="getForm">
+		<input type="text" name="name"  id="name1">
+		<input type="submit" value="submit">
+	</form>
+	<br>
+	<h1>POST FORM</h1>
+	<form action="process.php" method="POST">
+		<input type="text" name="name">
+		<input type="submit" value="submit">
+	</form>
+	<br>
+	<h1>AJAX POST FORM</h1>
+	<form action="process.php" method="POST" id="postForm">
+		<input type="text" name="name" id="name2">
+		<input type="submit" value="submit">
+	</form>
+</body>
+<script>
+	document.getElementById('btn').addEventListener('click',getData);
+
+	document.getElementById('getForm').addEventListener('submit',getForm);
+
+	document.getElementById('postForm').addEventListener('submit',postForm);
+
+	function getData(){
+		var xhr =  new XMLHttpRequest();
+		xhr.open("GET","process.php",true);
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				console.log(this.responseText);
+			}
+		}
+		xhr.send();
+	}
+
+	function getForm(e){
+		e.preventDefault();
+		var name = document.getElementById('name1').value;
+		var xhr =  new XMLHttpRequest();
+		xhr.open("GET","process.php?name="+name,true);
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				// console.log(this.responseText);
+				document.getElementById('process').innerHTML = this.responseText;
+			}
+		}
+		xhr.send();
+	}
+
+	function postForm(e){
+		e.preventDefault();
+		var name = document.getElementById('name2').value;
+		var params = "name=" + name;
+		var xhr =  new XMLHttpRequest();
+		xhr.open("POST","process.php",true);
+		//post请求一定要设置请求头
+		xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded"); 
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				// console.log(this.responseText);
+				document.getElementById('process').innerHTML = this.responseText;
+			}
+		}
+		// xhr.send(null);   xhr.send(params);
+		xhr.send(params);
+	}
+</script>
+</html>
